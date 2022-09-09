@@ -30,22 +30,25 @@ export const App: React.FC = () => {
 
   return (
     <div className="App">
-      {list.map((item, index) => (
-        <div>
-          <TextField 
-            value={item.value}
-            onChange={e => handleChange(e.currentTarget.value, item.id)}
-          />
-          <IconButton onClick={() => handleAdd(index)}>
-            <Add />
-          </IconButton>
-          {list.length > 1 && (
-            <IconButton onClick={() => handleDelete(item.id)}>
-              <Delete />
+      <h1> To-do list </h1>
+      <div className="Container">
+        {list.map((item, index) => (
+          <div className='Items'>
+            <TextField 
+              value={item.value}
+              onChange={e => handleChange(e.currentTarget.value, item.id)}
+            />
+            <IconButton onClick={() => handleAdd(index)}>
+              <Add />
             </IconButton>
-          )}
-        </div>
-      ))}
+            {list.length > 1 && (
+              <IconButton onClick={() => handleDelete(item.id)}>
+                <Delete />
+              </IconButton>
+            )}
+          </div>
+        ))}
+      </div>  
     </div>
   );
 }
